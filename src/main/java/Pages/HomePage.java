@@ -33,6 +33,16 @@ public class HomePage {
         return new AlertsPage(driver);
     }
 
+    public FileUploadPage clickFileUpload(){
+        clickLink("File Upload");
+        return new FileUploadPage(driver);
+    }
+
+    public WysiwygEditorPage clickWysiwygEditor(){
+        clickLink("WYSIWYG Editor");
+        return new WysiwygEditorPage(driver);
+    }
+
     //this is a following method and it can use common method to every clicking option.
     public void clickLink(String linkText){
         driver.findElement(By.linkText(linkText)).click();
