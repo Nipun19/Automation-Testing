@@ -9,6 +9,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class BaseTests {
     private WebDriver driver;
@@ -18,6 +19,8 @@ public class BaseTests {
     public void setUp(){
         System.setProperty("webdriver.chrome.driver" , "resources/chromedriver.exe");
         driver = new ChromeDriver();
+        //Page Load timeout
+        //driver.manage().timeouts().pageLoadTimeout(30,TimeUnit.SECONDS);
         driver.get("http://the-internet.herokuapp.com/");
 
         homePage = new HomePage(driver);

@@ -43,6 +43,11 @@ public class HomePage {
         return new WysiwygEditorPage(driver);
     }
 
+    public DynamicLoadPage clickdynamicLoading(){
+        clickLink("Dynamic Loading");
+        return new DynamicLoadPage(driver);
+    }
+
     //this is a following method and it can use common method to every clicking option.
     public void clickLink(String linkText){
         driver.findElement(By.linkText(linkText)).click();
