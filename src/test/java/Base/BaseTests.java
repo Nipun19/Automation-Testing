@@ -1,13 +1,13 @@
 package Base;
 
 import Pages.HomePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 
+import java.io.File;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -29,6 +29,13 @@ public class BaseTests {
     @AfterClass
     public void tearDown(){
     driver.quit();
+    }
+
+    @AfterMethod
+    public void takeScreenShot(){
+        var camera = (TakesScreenshot)driver;
+        File screenshot = camera.getScreenshotAs(OutputType.FILE);
+        System.out.println("Screenshot taken: "+screenshot.getAbsolutePath());
     }
 
     public static void main(String[] args) {
